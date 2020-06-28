@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Department" representedClassName="Department" syncable="YES">
+        <attribute name="deptName" optional="YES" attributeType="String"/>
+        <relationship name="deptToEmp" optional="YES" toMany="YES" minCount="3" deletionRule="Nullify" destinationEntity="Employee" inverseName="empToDept" inverseEntity="Employee"/>
+    </entity>
+    <entity name="Employee" representedClassName="Employee" syncable="YES">
+        <attribute name="empID" optional="YES" attributeType="String"/>
+        <attribute name="empName" optional="YES" attributeType="String"/>
+        <relationship name="empToDept" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="deptToEmp" inverseEntity="Department"/>
+        <relationship name="empToProj" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Project" inverseName="projToEmp" inverseEntity="Project"/>
+    </entity>
+    <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="projectID" optional="YES" attributeType="String"/>
+        <attribute name="projectName" optional="YES" attributeType="String"/>
+        <relationship name="projToEmp" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="empToProj" inverseEntity="Employee"/>
+    </entity>
+    <elements>
+        <element name="Department" positionX="-225.3671875" positionY="-218.578125" width="128" height="73"/>
+        <element name="Employee" positionX="0" positionY="45" width="128" height="103"/>
+        <element name="Project" positionX="-353.58984375" positionY="59.78515625" width="128" height="88"/>
+    </elements>
+</model>
